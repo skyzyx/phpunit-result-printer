@@ -5,7 +5,7 @@
 
 namespace Skyzyx\ResultPrinter;
 
-class ResultPrinter extends PHPUnit_TextUI_ResultPrinter
+class ResultPrinter extends \PHPUnit_TextUI_ResultPrinter
 {
     /** @var string */
     protected $test_name_status = '';
