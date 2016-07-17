@@ -1,0 +1,15 @@
+{
+    "name": "skyzyx/phpunit-result-printer",
+    "description": "A custom printer for PHPUnit.",
+    "type": "library",
+    "require": {
+        "phpunit/phpunit": "*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ryan Parman",
+            "email": "ryan@ryanparman.com"
+        }
+    ]
+}
