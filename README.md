@@ -12,8 +12,74 @@ A custom result printer for PHPUnit.
 
 ## Examples
 
-{Fill-in: Example usage of this code.}
+Here is the output from using this with [skyzyx/php-strong-types](https://github.com/skyzyx/php-strong-types).
 
+```
+PHPUnit 5.4.6 by Sebastian Bergmann and contributors.
+
+Runtime:       PHP 5.6.23 with Xdebug 2.4.0
+Configuration: /Library/WebServer/Documents/php-strong-types/phpunit.xml.dist
+
+✓ Skyzyx\Tests\StrongTypes\AbstractTest::testTypeMap (55 ms)
+✓ Skyzyx\Tests\StrongTypes\AbstractTest::testNativeType (48 ms)
+✓ Skyzyx\Tests\StrongTypes\BooleanTest::testBooleanType (59 ms)
+✓ Skyzyx\Tests\StrongTypes\BooleanTest::testBooleanException (51 ms)
+✓ Skyzyx\Tests\StrongTypes\BooleanTest::testBooleanToString (47 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionType (63 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionCount (58 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionAppend (53 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionGetInvalid (56 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionRemove (55 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionSeek (68 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionToString (53 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionDeepArray (58 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionDeepArrayFail (68 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionExists (64 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionSeekable (59 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionForeach (53 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionValidation (62 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionValidationStringException (70 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionValidationIntegerException (62 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionValidationIntegerException2 (60 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionValidationMissingRequiredException (65 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionValidationDisallowedException (58 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionSeekableException (53 ms)
+✓ Skyzyx\Tests\StrongTypes\CollectionTest::testCollectionException (63 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #0 ('   Just a string') (49 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #1 (' abigail@example.com') (51 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #2 (' joeblow@apache.org') (57 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #3 ('$@[]') (50 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #4 ('':;') (51 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #5 ('()@example.com') (49 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #6 ('(comment)') (51 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #7 ('(foo) abigail@example.com') (52 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #8 ('*()@[]') (55 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #9 ('@example.com') (61 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #10 ('"127.0.0.1"@[127.0.0.1]') (52 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #11 ('":sysmail"@  Some-Group. Some-Org') (49 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #12 ('""test\""blah""@example.com') (54 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #13 ('"\""@foo.bar') (56 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #14 ('"Abi"gail" <abigail@example.com>') (49 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #15 ('"Abi\"gail" <abigail@example.com>') (50 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #16 ('"Abigail "<abigail@example.com>') (49 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #17 ('"George, Ted" <Shared@Group.Arpanet>') (57 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #18 ('"Joe & J. Harvey" <example @Org>') (49 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #19 ('"Joe & J. Harvey"\x0D\x0A    ...@ Org>') (51 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #20 ('"Joe &\x0D\x0A J. Harvey" <ddd \@ Org>') (50 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #21 ('"joe!"@apache.org') (48 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #22 ('"joe%45"@apache.org') (50 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #23 ('"joe&"@apache.org') (49 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #24 ('"joe'"@apache.org') (50 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #25 ('"joe("@apache.org') (58 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #26 ('"joe)"@apache.org') (50 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #27 ('"joe*"@apache.org') (56 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #28 ('"joe+"@apache.org') (57 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #29 ('"joe,"@apache.org') (56 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #30 ('"joe."@apache.org') (49 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #31 ('"joe;"@apache.org') (55 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #32 ('"joe="@apache.org') (53 ms)
+✓ Skyzyx\Tests\StrongTypes\StringType\EmailInvalidTest::testValidate with data set #33 ('"joe?"@apache.org') (50 ms)
+```
 
 ## Installation
 
