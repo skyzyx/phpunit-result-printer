@@ -35,40 +35,37 @@ class ResultPrinter extends \PHPUnit_TextUI_ResultPrinter
     {
         switch ($progress) {
             case 'E':
-                return parent::writeProgress(sprintf('%s %s',
-                    $this->errorEmoji,
-                    $this->test_name_status));
-
+                $icon = $this->errorEmoji;
+                break;
             case 'F':
-                return parent::writeProgress(sprintf('%s %s',
-                    $this->failureEmoji,
-                    $this->test_name_status));
-
+                $icon = $this->failureEmoji;
+                break;
             case 'I':
-                return parent::writeProgress(sprintf('%s %s',
-                    $this->incompleteEmoji,
-                    $this->test_name_status));
-
+                $icon = $this->incompleteEmoji;
+                break;
             case 'R':
-                return parent::writeProgress(sprintf('%s %s',
-                    $this->riskyEmoji,
-                    $this->test_name_status));
-
+                $icon = $this->riskyEmoji;
+                break;
             case 'S':
-                return parent::writeProgress(sprintf('%s %s',
-                    $this->skippedEmoji,
-                    $this->test_name_status));
-
+                $icon = $this->skippedEmoji;
+                break;
             case '.':
-                return parent::writeProgress(sprintf('%s %s',
-                    $this->passEmoji,
-                    $this->test_name_status));
-
+                $icon = $this->passEmoji;
+                break;
             default:
-                return parent::writeProgress(sprintf('%s %s',
-                    $progress,
-                    $this->test_name_status));
+                $icon = $progress;
         }
+        $this->column++;
+        $this->numTestsRun++;
+
+        $this->write(sprintf(
+            '%' . $this->numTestsWidth . 'd/%' . $this->numTestsWidth . 'd (%3s%%) %s %s',
+            $this->numTestsRun,
+            $this->numTests,
+            floor(($this->numTestsRun / $this->numTests) * 100),
+            $icon,
+            $this->test_name_status
+        ));
     }
 
     /**
@@ -79,7 +76,7 @@ class ResultPrinter extends \PHPUnit_TextUI_ResultPrinter
         if ($this->numTests == -1) {
             $this->numTests      = count($suite);
             $this->numTestsWidth = strlen((string) $this->numTests);
-            $this->maxColumn     = 0;
+            $this->maxColumn     = 1000;
         }
     }
 
