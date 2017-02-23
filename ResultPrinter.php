@@ -1,11 +1,18 @@
 <?php
 /**
- * Copyright (c) 2014-2016 Ryan Parman
+ * Copyright (c) 2014-2017 Ryan Parman
  */
 
 namespace Skyzyx\ResultPrinter;
 
-class ResultPrinter extends \PHPUnit_TextUI_ResultPrinter
+use PHPUnit\Extensions\PhptTestCase;
+use PHPUnit\Framework\Test;
+use PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestSuite;
+use PHPUnit\TextUI\ResultPrinter as PPrinter;
+use PHPUnit\Util\Test as TestUtil;
+
+class ResultPrinter extends PPrinter
 {
     /** @var string */
     protected $test_name_status = '';
@@ -71,7 +78,7 @@ class ResultPrinter extends \PHPUnit_TextUI_ResultPrinter
     /**
      * {@inheritdoc}
      */
-    public function startTestSuite(\PHPUnit_Framework_TestSuite $suite)
+    public function startTestSuite(TestSuite $suite)
     {
         if ($this->numTests == -1) {
             $this->numTests      = count($suite);
@@ -83,9 +90,9 @@ class ResultPrinter extends \PHPUnit_TextUI_ResultPrinter
     /**
      * {@inheritdoc}
      */
-    public function endTest(\PHPUnit_Framework_Test $test, $time)
+    public function endTest(Test $test, $time)
     {
-        $test_name = \PHPUnit_Util_Test::describe($test);
+        $test_name = TestUtil::describe($test);
 
         if (!empty($test_name)) {
             $this->test_name_status = sprintf("%s (%s)\n",
@@ -98,15 +105,15 @@ class ResultPrinter extends \PHPUnit_TextUI_ResultPrinter
             $this->writeProgress('.');
         }
 
-        if ($test instanceof \PHPUnit_Framework_TestCase) {
+        if ($test instanceof TestCase) {
             $this->numAssertions += $test->getNumAssertions();
-        } elseif ($test instanceof \PHPUnit_Extensions_PhptTestCase) {
+        } elseif ($test instanceof PhptTestCase) {
             $this->numAssertions++;
         }
 
         $this->lastTestFailed = false;
 
-        if ($test instanceof \PHPUnit_Framework_TestCase) {
+        if ($test instanceof TestCase) {
             if (method_exists($this, 'hasExpectationOnOutput') && !$test->hasExpectationOnOutput()) {
                 $this->write($test->getActualOutput());
             }

@@ -126,7 +126,7 @@ Configuration: /Library/WebServer/Documents/php-strong-types/phpunit.xml.dist
 
 Using [Composer]:
 ```bash
-composer require skyzyx/phpunit-result-printer=^1.0
+composer require skyzyx/phpunit-result-printer=^2.0
 ```
 
 And include it in your scripts:
@@ -160,7 +160,7 @@ Here's the process for contributing:
 
 ## Authors, Copyright & Licensing
 
-* Copyright (c) 2014-2016 [Ryan Parman](http://ryanparman.com).
+* Copyright (c) 2014-2017 [Ryan Parman](http://ryanparman.com).
 
 See also the list of [contributors](https://github.com/skyzyx/phpunit-result-printer/contributors) who participated in this project.
 
