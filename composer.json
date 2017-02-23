@@ -3,6 +3,7 @@
     "description": "A custom printer for PHPUnit.",
     "type": "library",
     "require": {
+        "php": ">=7.0",
         "phpunit/phpunit": "^6.0"
     },
     "license": "MIT",
