@@ -1,8 +1,7 @@
 <?php
 /**
- * Copyright (c) 2014-2017 Ryan Parman
+ * Copyright (c) 2014-2018 Ryan Parman <http://ryanparman.com>
  */
-
 namespace Skyzyx\ResultPrinter;
 
 use PHPUnit\Extensions\PhptTestCase;
@@ -38,7 +37,7 @@ class ResultPrinter extends PPrinter
     /**
      * {@inheritdoc}
      */
-    protected function writeProgress($progress)
+    protected function writeProgress($progress): void
     {
         switch ($progress) {
             case 'E':
@@ -62,6 +61,7 @@ class ResultPrinter extends PPrinter
             default:
                 $icon = $progress;
         }
+
         $this->column++;
         $this->numTestsRun++;
 
@@ -78,7 +78,7 @@ class ResultPrinter extends PPrinter
     /**
      * {@inheritdoc}
      */
-    public function startTestSuite(TestSuite $suite)
+    public function startTestSuite(TestSuite $suite): void
     {
         if ($this->numTests == -1) {
             $this->numTests      = count($suite);
@@ -90,15 +90,18 @@ class ResultPrinter extends PPrinter
     /**
      * {@inheritdoc}
      */
-    public function endTest(Test $test, $time)
+    public function endTest(Test $test, $time): void
     {
         $test_name = TestUtil::describe($test);
 
         if (!empty($test_name)) {
-            $this->test_name_status = sprintf("%s (%s)\n",
-                $test_name,
+            $this->test_name_status = sprintf(
+                "%s::%s (%s)\n",
+                $test_name[0],
+                $test_name[1],
                 sprintf("%s ms",
-                    round($time * 1000)));
+                round($time * 1000))
+            );
         }
 
         if (!$this->lastTestFailed) {
@@ -123,8 +126,8 @@ class ResultPrinter extends PPrinter
     /**
      * {@inheritdoc}
      */
-    protected function writeProgressWithColor($color, $buffer)
+    protected function writeProgressWithColor($color, $buffer): void
     {
-        return $this->writeProgress($buffer);
+        $this->writeProgress($buffer);
     }
 }
