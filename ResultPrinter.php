@@ -42,7 +42,7 @@ class ResultPrinter extends PPrinter
     protected $numTestsRun;
 
     /** @var int  */
-    protected $numTests;
+    protected $numTests = -1;
 
     /** @var int  */
     protected $column;
