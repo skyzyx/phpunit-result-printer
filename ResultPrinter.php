@@ -1,16 +1,20 @@
 <?php
 /**
- * Copyright (c) 2014-2018 Ryan Parman <http://ryanparman.com>
+ * Copyright (c) 2014-2020 Ryan Parman <http://ryanparman.com>
  */
 namespace Skyzyx\ResultPrinter;
 
-use PHPUnit\Extensions\PhptTestCase;
 use PHPUnit\Framework\Test;
 use PHPUnit\Framework\TestCase;
 use PHPUnit\Framework\TestSuite;
-use PHPUnit\TextUI\ResultPrinter as PPrinter;
+use PHPUnit\Runner\PhptTestCase;
+use PHPUnit\TextUI\DefaultResultPrinter as PPrinter;
 use PHPUnit\Util\Test as TestUtil;
 
+/**
+ * Class ResultPrinter
+ * @package Skyzyx\ResultPrinter
+ */
 class ResultPrinter extends PPrinter
 {
     /** @var string */
@@ -34,10 +38,31 @@ class ResultPrinter extends PPrinter
     /** @var string */
     protected $passEmoji = "\xE2\x9c\x93"; // Checkmark
 
+    /** @var int  */
+    protected $numTestsRun;
+
+    /** @var int  */
+    protected $numTests;
+
+    /** @var int  */
+    protected $column;
+
+    /** @var int */
+    protected $numTestsWidth;
+
+    /** @var int */
+    protected $maxColumn;
+
+    /** @var bool */
+    protected $lastTestFailed;
+
+    /** @var int */
+    protected $numAssertions;
+
     /**
-     * {@inheritdoc}
+     * @param string $progress
      */
-    protected function writeProgress($progress): void
+    protected function writeProgress(string $progress): void
     {
         switch ($progress) {
             case 'E':
